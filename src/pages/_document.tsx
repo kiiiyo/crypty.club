@@ -9,6 +9,7 @@ const CustomDocument = () => {
     <Html lang="ja-JP">
       <Head>
         <meta name="theme-color" content="#EBE9DA" />
+        <link rel="icon" href="/favicon.ico" />
         {/* 
         <meta name="description" content={description} />
         <meta property="og:type" content="website" />

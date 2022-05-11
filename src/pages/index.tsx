@@ -1,20 +1,9 @@
-import type { NextPage } from "next";
-import Head from "next/head";
+import type { NextPage } from 'next'
+//
+import { Pages } from '@/components'
 
-const Home: NextPage = () => {
-  return (
-    <div>
-      <Head>
-        <title>Crypty Club</title>
-        <meta name="description" content="Crypty Club" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+const HomePage: NextPage = () => {
+  return <Pages.HomePage />
+}
 
-      <main>
-        <h1>Crypty Club</h1>
-      </main>
-    </div>
-  );
-};
-
-export default Home;
+export default HomePage
