@@ -8,7 +8,7 @@ const CustomDocument = () => {
   return (
     <Html lang="ja-JP">
       <Head>
-        <meta name="theme-color" content="#EBE9DA" />
+        <meta name="theme-color" content="#000" />
         <link rel="icon" href="/favicon.ico" />
         {/* 
         <meta name="description" content={description} />

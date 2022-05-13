@@ -2,6 +2,6 @@ import * as Templates from './templates'
 import * as Pages from './pages'
 import * as Organisms from './organisms'
 // import * as Molecules from './molecules'
-// import * as Atoms from './atoms'
+import * as Atoms from './atoms'
 
-export { Templates, Pages, Organisms }
+export { Templates, Pages, Organisms, Atoms }
