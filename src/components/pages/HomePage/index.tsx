@@ -10,7 +10,7 @@ export const HomePagePresenter: FC = () => {
   return (
     <Templates.GenericTemplate
       globalHeader={<Organisms.GlobalHeader />}
-      globalFooter={<div>Global Footer</div>}
+      globalFooter={<Organisms.GlobalFooter />}
     >
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400">
         Homa Page
