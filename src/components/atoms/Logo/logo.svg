@@ -1,0 +1,14 @@
+<svg width="96" height="192" viewBox="0 0 96 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_218_3110" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="96" height="192">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M96 88V48C96 21.4903 74.5097 0 48 0C21.4903 0 0 21.4903 0 48V88H32L32 48C32 39.1634 39.1634 32 48 32C56.8366 32 64 39.1634 64 48V88H96ZM32 104V144C32 152.837 39.1634 160 48 160C56.8366 160 64 152.837 64 144V104H96L96 144C96 170.51 74.5097 192 48 192C21.4903 192 0 170.51 0 144L0 104H32Z" fill="#00B1D9"/>
+</mask>
+<g mask="url(#mask0_218_3110)">
+<path d="M96 -8V88H0V-8L96 -8Z" fill="#00B1D9"/>
+</g>
+<mask id="mask1_218_3110" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="96" height="192">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M96 88V48C96 21.4903 74.5097 0 48 0C21.4903 0 0 21.4903 0 48V88H32L32 48C32 39.1634 39.1634 32 48 32C56.8366 32 64 39.1634 64 48V88H96ZM32 104V144C32 152.837 39.1634 160 48 160C56.8366 160 64 152.837 64 144V104H96L96 144C96 170.51 74.5097 192 48 192C21.4903 192 0 170.51 0 144L0 104H32Z" fill="#FF362E"/>
+</mask>
+<g mask="url(#mask1_218_3110)">
+<path d="M96 104V200H0V104H96Z" fill="#FF362E"/>
+</g>
+</svg>
