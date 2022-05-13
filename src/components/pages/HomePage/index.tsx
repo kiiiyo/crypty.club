@@ -1,6 +1,6 @@
 import { FC } from 'react'
 //
-import { Templates } from '@/components'
+import { Templates, Organisms } from '@/components'
 
 export const HomePage: FC = () => {
   return <HomePagePresenter />
@@ -9,7 +9,7 @@ export const HomePage: FC = () => {
 export const HomePagePresenter: FC = () => {
   return (
     <Templates.GenericTemplate
-      globalHeader={<div>Global Header</div>}
+      globalHeader={<Organisms.GlobalHeader />}
       globalFooter={<div>Global Footer</div>}
     >
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400">
