@@ -5,7 +5,7 @@ export type Image = {
 }
 
 export type Entity = {
-  image?: Image
+  id: string
   createdAt: string
   publishedAt: string
   updatedAt: string
