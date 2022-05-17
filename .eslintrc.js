@@ -21,5 +21,11 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['react', '@typescript-eslint'],
-  rules: {}
+  rules: {
+    //セミコロンがないと警告
+    'no-extra-semi': 'warn',
+    //シングルクオートを使っていないと警告
+    quotes: ['warn', 'single'],
+    'react/prop-types': 'off'
+  }
 }
