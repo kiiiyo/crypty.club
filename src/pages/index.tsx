@@ -4,7 +4,8 @@ import { Domain, Usecase } from '@/features'
 import { Pages } from '@/components'
 
 export type State = {
-  articleCollection: Domain.Article.Collection
+  data?: Domain.Article.Collection
+  error?: null
 }
 
 export type HomePageProps = {
@@ -12,22 +13,23 @@ export type HomePageProps = {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const articleCollection = await Usecase.Article.articleCollection({
-    limit: 10,
-    offset: 5
-  })
-
-  return {
-    props: {
-      state: { articleCollection }
+  try {
+    const data = await Usecase.Article.articleCollection({
+      limit: 10,
+      offset: 5
+    })
+    return { props: { state: { data } } }
+  } catch (error) {
+    if (error instanceof Domain.Error.HttpError) {
+      return { props: { error: error.serialize() } }
     }
+    throw error
   }
 }
 
-const HomePage: NextPage<HomePageProps> = ({
-  state: { articleCollection }
-}) => {
-  console.log(articleCollection)
+const HomePage: NextPage<HomePageProps> = ({ state: { data, error } }) => {
+  console.log(data)
+  console.log(error)
   return <Pages.HomePage />
 }
 
