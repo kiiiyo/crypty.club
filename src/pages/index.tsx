@@ -5,7 +5,7 @@ import { Pages } from '@/components'
 
 export type State = {
   data?: Domain.Article.Collection
-  error?: null
+  error?: Domain.Error.HttpErrorEntity
 }
 
 export type HomePageProps = {
@@ -16,20 +16,20 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const data = await Usecase.Article.articleCollection({
       limit: 10,
-      offset: 5
+      offset: 0
     })
     return { props: { state: { data } } }
   } catch (error) {
     if (error instanceof Domain.Error.HttpError) {
-      return { props: { error: error.serialize() } }
+      return { props: { state: { error: error.serialize() } } }
     }
     throw error
   }
 }
 
 const HomePage: NextPage<HomePageProps> = ({ state: { data, error } }) => {
-  console.log(data)
-  console.log(error)
+  console.log('🚀 ~ file: index.tsx ~ line 31 ~ data', data)
+  console.log('🚀 ~ file: index.tsx ~ line 31 ~ error', error)
   return <Pages.HomePage />
 }
 

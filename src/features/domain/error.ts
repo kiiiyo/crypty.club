@@ -1,3 +1,9 @@
+export class NetworkError extends Error {
+  constructor(public error: Error, message?: string) {
+    super(message)
+  }
+}
+
 export type HttpErrorEntity = {
   name: string
   message: string
@@ -8,7 +14,6 @@ export type HttpErrorEntity = {
     statusText: string
   }
 }
-
 export class HttpError extends Error {
   url: string
   status: number
