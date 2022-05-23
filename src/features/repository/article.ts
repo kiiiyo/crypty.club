@@ -1,33 +1,12 @@
 import { Domain } from '@/features'
-import { microcmsClient } from '@/libs/microcms'
-
-// export const getStaticProps = async () => {
-//   const data = await client.get({
-//     endpoint: 'hello',
-//   });
-
-//   return {
-//     props: {
-//       data,
-//     },
-//   };
-// };
-
-// getList: <T_1 = any>({ endpoint, queries, }: GetListRequest) => Promise<MicroCMSListResponse<T_1>>;
+import { getList } from '@/libs/microcms'
 
 export const articleCollection: (
   query: Domain.Article.CollectionQuery
 ) => Promise<Domain.Article.Collection> = async (query) => {
   const { limit, offset } = query
 
-  const data = await microcmsClient
-    .getList({
-      endpoint: 'articles'
-    })
-    .then((response) => response)
-    .catch((erro) => erro)
-
-  return data
+  return getList({ endpoint: 'articles', queries: { limit, offset } })
 }
 
 // export const postDetail: (
