@@ -5,7 +5,7 @@ import { Pages } from '@/components'
 
 export type State = {
   data?: Domain.Article.Collection
-  error?: Domain.Error.HttpErrorEntity
+  error?: string // TODO
 }
 
 export type HomePageProps = {
@@ -21,7 +21,11 @@ export const getStaticProps: GetStaticProps = async () => {
     return { props: { state: { data } } }
   } catch (error) {
     if (error instanceof Domain.Error.HttpError) {
-      return { props: { state: { error: error.serialize() } } }
+      return {
+        props: {
+          state: { error: '正常に記事を取得することができませんでした。' }
+        }
+      }
     }
     throw error
   }

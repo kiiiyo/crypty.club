@@ -2,11 +2,12 @@ import { Domain } from '@/features'
 import { getList } from '@/libs/microcms'
 
 export const articleCollection: (
-  query: Domain.Article.CollectionQuery
-) => Promise<Domain.Article.Collection> = async (query) => {
-  const { limit, offset } = query
-
-  return getList({ endpoint: 'articles', queries: { limit, offset } })
+  queries: Domain.Article.CollectionQuery
+) => Domain.Article.FetchCollectionResult = async (queries) => {
+  return getList({
+    endpoint: 'articles',
+    queries
+  }) as Domain.Article.FetchCollectionResult
 }
 
 // export const postDetail: (

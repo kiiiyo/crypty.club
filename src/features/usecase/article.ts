@@ -2,7 +2,7 @@ import { Domain, Repository } from '../index'
 
 export const articleCollection: (
   query: Domain.Article.CollectionQuery
-) => Promise<Domain.Article.Collection> = async (query) => {
+) => Domain.Article.FetchCollectionResult = async (query) => {
   return await Repository.Article.articleCollection(query)
 }
 

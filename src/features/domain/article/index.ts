@@ -21,3 +21,5 @@ export type Collection = {
   offset: number
   totalCount: number
 }
+
+export type FetchCollectionResult = Promise<Collection | Domain.Error.HttpError>
