@@ -16,7 +16,7 @@ export const GlobalHeaderPresenter: FC = () => {
   return (
     <Fragment>
       <nav className="shadow bg-black">
-        <div className="lg:container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+        <div className="container px-6 py-4 mx-auto">
           {/* Brand Logo */}
           <Link href="/">
             <a>

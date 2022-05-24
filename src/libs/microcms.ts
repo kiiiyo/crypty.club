@@ -22,7 +22,6 @@ export const getList = async (request: TGetListRequest) => {
         resolve(response)
       })
       .catch((error) => {
-        console.error('ErrorLogs:', error)
         reject(new HttpError(error))
       })
   })

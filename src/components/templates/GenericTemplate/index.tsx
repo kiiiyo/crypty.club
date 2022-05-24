@@ -17,7 +17,7 @@ export const GenericTemplate: FC<TGenericTemplateProps> = ({
     <Fragment>
       <div>{globalHeader}</div>
       <div className="bg-gray-100">
-        <main className="lg:container p-6 mx-auto">{children}</main>
+        <main className="max-w-6xl py-8 mx-auto">{children}</main>
       </div>
       <div>{globalFooter}</div>
     </Fragment>
