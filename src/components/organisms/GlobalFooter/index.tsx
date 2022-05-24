@@ -15,7 +15,7 @@ export const GlobalFooter: FC = () => {
 export const GlobalFooterPresenter: FC = () => {
   return (
     <footer>
-      <div className="container py-12 px-4 mx-auto bg-white md:px-6">
+      <div className="max-w-6xl py-12 px-4 mx-auto bg-white md:px-6">
         <div className="mx-auto w-full">
           <div className="grid gap-12 lg:grid-cols-5 lg:gap-8">
             {/* */}

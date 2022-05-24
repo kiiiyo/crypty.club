@@ -4,8 +4,16 @@ export type Image = {
   url: string
 }
 
+export type OGP = {
+  fieldId: 'ogp'
+  title: string
+  description?: string
+  image: Image
+}
+
 export type Entity = {
   id: string
+  ogp: OGP
   createdAt: string
   publishedAt: string
   updatedAt: string

@@ -10,9 +10,8 @@ export type Entity = Domain.Content.Entity & {
   slug: string
   description?: string | null
   content?: Document | null
-  categories?: Array<Domain.Category.Entity>
+  category?: Domain.Category.Entity
   tags?: Array<Domain.Tag.Entity>
-  images?: Domain.Content.Image
 }
 
 export type Collection = {
