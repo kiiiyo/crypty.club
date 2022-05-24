@@ -26,6 +26,7 @@ module.exports = {
     'no-extra-semi': 'warn',
     //シングルクオートを使っていないと警告
     quotes: ['warn', 'single'],
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    '@typescript-eslint/no-empty-function': 'off'
   }
 }
