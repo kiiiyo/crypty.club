@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 //
 import { Domain } from '@/features'
+import { Atoms } from '@/components'
 
 // Interface
 
@@ -31,8 +32,11 @@ export const ArticleCollectionPresenter: FC<
     <section>
       <div className="px-4 lg:px-0">
         <div className="pb-6">
-          {/* TODO: Typography Component */}
-          <h1 className="font-bold text-2xl">新着記事</h1>
+          <div className="flex justify-start items-center">
+            {/* TODO: Typography Component */}
+            <Atoms.Icon.DocumentTextIcon className="h-8 w-8 mr-2" />
+            <h1 className="font-bold text-2xl">新着記事</h1>
+          </div>
         </div>
         <div className="md:grid md:grid-cols-3 md:gap-8">
           {collection.contents.length > 0 ? (
