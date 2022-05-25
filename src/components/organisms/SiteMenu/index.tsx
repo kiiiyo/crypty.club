@@ -1,5 +1,5 @@
-import { FC, Fragment } from 'react'
-import Link from 'next/link'
+import { FC, Fragment, useCallback } from 'react'
+//import Link from 'next/link'
 //
 import { Hooks } from '@/features'
 import { Atoms } from '@/components'
@@ -13,7 +13,7 @@ export type State = {
 }
 
 export type Actions = {
-  handleDisplayOverlaySiteMenu: (condition: DisplayOverlayView) => void
+  onCloseClick: () => void
 }
 
 export type SiteMenuPresenterProps = {
@@ -28,10 +28,15 @@ export const SiteMenu: FC = () => {
     state: { displayOverlaySiteMenu },
     actions: { handleDisplayOverlaySiteMenu }
   } = Hooks.App.useAppContext()
+
+  const onCloseClick = useCallback(() => {
+    handleDisplayOverlaySiteMenu('HIDE')
+  }, [handleDisplayOverlaySiteMenu])
+
   return (
     <SiteMenuPresenter
       state={{ displayOverlaySiteMenu }}
-      actions={{ handleDisplayOverlaySiteMenu }}
+      actions={{ onCloseClick }}
     />
   )
 }
@@ -39,20 +44,21 @@ export const SiteMenu: FC = () => {
 // Presenter Component
 
 export const SiteMenuPresenter: FC<SiteMenuPresenterProps> = ({
-  state: { displayOverlaySiteMenu }
+  state: { displayOverlaySiteMenu },
+  actions: { onCloseClick }
 }) => {
   return displayOverlaySiteMenu === 'SHOW' ? (
     <Fragment>
       <div className="z-20 absolute w-full">
         <div className="relative w-full">
           <div className="max-w-6xl mx-auto">
-            <button className="fixed top-4 right-4">
+            <button onClick={onCloseClick} className="fixed top-4 right-4">
               <Atoms.Icon.CloseIcon className="h-8 w-8 text-white" />
             </button>
           </div>
         </div>
       </div>
-      <Atoms.Overlay />
+      <Atoms.Overlay onClick={onCloseClick} />
     </Fragment>
   ) : null
 }

@@ -1,23 +1,68 @@
-import { FC } from 'react'
+import { FC, useCallback } from 'react'
 import Link from 'next/link'
 //
 import { Constants } from '@/env'
+import { Hooks } from '@/features'
 import { Atoms } from '@/components'
 
 // Interface
 
+export type Actions = {
+  onSiteMenuClick: () => void
+  onSearchKeywordClick: () => void
+}
+
+export type GlobalHeaderPresenterProps = {
+  actions: Actions
+}
+
 // Component
 
 export const GlobalHeader: FC = () => {
-  return <GlobalHeaderPresenter />
+  const {
+    state: { displayOverlaySiteMenu, displayOverlaySearchKeyword },
+    actions: { handleDisplayOverlaySiteMenu, handleDisplayOverlaySearchKeyword }
+  } = Hooks.App.useAppContext()
+
+  const onSiteMenuClick = useCallback(() => {
+    handleDisplayOverlaySiteMenu(
+      displayOverlaySiteMenu === 'HIDE' ? 'SHOW' : 'HIDE'
+    )
+  }, [displayOverlaySiteMenu, handleDisplayOverlaySiteMenu])
+
+  const onSearchKeywordClick = useCallback(() => {
+    handleDisplayOverlaySearchKeyword(
+      displayOverlaySearchKeyword === 'HIDE' ? 'SHOW' : 'HIDE'
+    )
+  }, [displayOverlaySearchKeyword, handleDisplayOverlaySearchKeyword])
+
+  return (
+    <GlobalHeaderPresenter
+      actions={{
+        onSiteMenuClick,
+        onSearchKeywordClick
+      }}
+    />
+  )
 }
 
-export const GlobalHeaderPresenter: FC = () => {
+export const GlobalHeaderPresenter: FC<GlobalHeaderPresenterProps> = ({
+  actions: { onSiteMenuClick, onSearchKeywordClick }
+}) => {
   return (
     <nav className="shadow bg-black">
-      <div className="max-w-6xl px-6 py-4 mx-auto">
+      <div className="max-w-6xl px-6 lg:px-0 py-4 mx-auto">
         <div className="flex items-center justify-center">
-          {/* Brand Logo */}
+          {/* SiteMenu: start */}
+          <button
+            onClick={onSiteMenuClick}
+            className="flex items-center justify-center h-12 mr-auto"
+          >
+            <Atoms.Icon.ViewListIcon className="h-8 w-8 text-gray-300 hover:text-gray-200 active:text-white" />
+          </button>
+          {/* SiteMenu: end */}
+
+          {/* BrandLogo: start */}
           <Link href="/">
             <a className="flex items-center justify-center">
               <div className="w-8 mr-1">
@@ -28,7 +73,16 @@ export const GlobalHeaderPresenter: FC = () => {
               </h1>
             </a>
           </Link>
-          {/* Brand Logo */}
+          {/* BrandLogo: end */}
+
+          {/* SearchKeyword: start */}
+          <button
+            onClick={onSearchKeywordClick}
+            className="flex items-center justify-center h-12 ml-auto"
+          >
+            <Atoms.Icon.SearchIcon className="h-8 w-8 text-gray-300 hover:text-gray-200 active:text-white" />
+          </button>
+          {/* SearchKeyword: end */}
         </div>
       </div>
     </nav>
