@@ -6,7 +6,7 @@ const CustomDocument = () => {
   // const description = ''
 
   return (
-    <Html lang="ja-JP">
+    <Html lang="ja">
       <Head>
         <meta name="theme-color" content="#000" />
         <link rel="icon" href="/favicon.ico" />
