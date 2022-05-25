@@ -19,12 +19,12 @@ export type State = {
   }
   deviceType: DeviceType
   displayOverlaySiteMenu: DisplayOverlayView
-  displayOverlaySearchKeyword: DisplayOverlayView
+  displayOverlaySearchKeywordMenu: DisplayOverlayView
 }
 
 export type Actions = {
   handleDisplayOverlaySiteMenu: (condition: DisplayOverlayView) => void
-  handleDisplayOverlaySearchKeyword: (condition: DisplayOverlayView) => void
+  handleDisplayOverlaySearchKeywordMenu: (condition: DisplayOverlayView) => void
 }
 
 export type AppContextValueType = {
@@ -37,7 +37,7 @@ export type AppContextValueType = {
 const initContextValue: AppContextValueType = {
   state: {
     displayOverlaySiteMenu: 'HIDE',
-    displayOverlaySearchKeyword: 'HIDE',
+    displayOverlaySearchKeywordMenu: 'HIDE',
     screenSize: {
       width: 0,
       height: 0
@@ -46,7 +46,7 @@ const initContextValue: AppContextValueType = {
   },
   actions: {
     handleDisplayOverlaySiteMenu: () => {},
-    handleDisplayOverlaySearchKeyword: () => {}
+    handleDisplayOverlaySearchKeywordMenu: () => {}
   }
 }
 
@@ -58,7 +58,7 @@ export const useAppContext = (): AppContextValueType => {
   // State
   const [displayOverlaySiteMenu, setDisplayOverlaySiteMenu] =
     useState<DisplayOverlayView>('HIDE')
-  const [displayOverlaySearchKeyword, setDisplayOverlaySearchKeyword] =
+  const [displayOverlaySearchKeywordMenu, setDisplayOverlaySearchKeywordMenu] =
     useState<DisplayOverlayView>('HIDE')
   const [screenSize, setScreenSize] = useState({
     width: 0,
@@ -72,11 +72,11 @@ export const useAppContext = (): AppContextValueType => {
     },
     [setDisplayOverlaySiteMenu]
   )
-  const handleDisplayOverlaySearchKeyword = useCallback(
+  const handleDisplayOverlaySearchKeywordMenu = useCallback(
     (condition: DisplayOverlayView) => {
-      setDisplayOverlaySearchKeyword(condition)
+      setDisplayOverlaySearchKeywordMenu(condition)
     },
-    [setDisplayOverlaySearchKeyword]
+    [setDisplayOverlaySearchKeywordMenu]
   )
 
   useEffect(() => {
@@ -101,9 +101,12 @@ export const useAppContext = (): AppContextValueType => {
       // TODO: ブレイクポイントを別で管理する
       deviceType: screenSize.width <= 768 ? 'DESKTOP' : 'MOBILE',
       displayOverlaySiteMenu,
-      displayOverlaySearchKeyword
+      displayOverlaySearchKeywordMenu
     },
-    actions: { handleDisplayOverlaySiteMenu, handleDisplayOverlaySearchKeyword }
+    actions: {
+      handleDisplayOverlaySiteMenu,
+      handleDisplayOverlaySearchKeywordMenu
+    }
   }
 }
 

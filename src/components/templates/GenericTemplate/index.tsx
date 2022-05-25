@@ -22,6 +22,7 @@ export const GenericTemplate: FC<GenericTemplateProps> = ({
       </div>
       <div>{globalFooter}</div>
       <Organisms.SiteMenu />
+      <Organisms.SearchKeywordMenu />
     </Fragment>
   )
 }

@@ -20,8 +20,11 @@ export type GlobalHeaderPresenterProps = {
 
 export const GlobalHeader: FC = () => {
   const {
-    state: { displayOverlaySiteMenu, displayOverlaySearchKeyword },
-    actions: { handleDisplayOverlaySiteMenu, handleDisplayOverlaySearchKeyword }
+    state: { displayOverlaySiteMenu, displayOverlaySearchKeywordMenu },
+    actions: {
+      handleDisplayOverlaySiteMenu,
+      handleDisplayOverlaySearchKeywordMenu
+    }
   } = Hooks.App.useAppContext()
 
   const onSiteMenuClick = useCallback(() => {
@@ -31,10 +34,10 @@ export const GlobalHeader: FC = () => {
   }, [displayOverlaySiteMenu, handleDisplayOverlaySiteMenu])
 
   const onSearchKeywordClick = useCallback(() => {
-    handleDisplayOverlaySearchKeyword(
-      displayOverlaySearchKeyword === 'HIDE' ? 'SHOW' : 'HIDE'
+    handleDisplayOverlaySearchKeywordMenu(
+      displayOverlaySearchKeywordMenu === 'HIDE' ? 'SHOW' : 'HIDE'
     )
-  }, [displayOverlaySearchKeyword, handleDisplayOverlaySearchKeyword])
+  }, [displayOverlaySearchKeywordMenu, handleDisplayOverlaySearchKeywordMenu])
 
   return (
     <GlobalHeaderPresenter
