@@ -1,14 +1,15 @@
 import { FC, Fragment } from 'react'
 
+import { Organisms } from '@/components'
+
 // Interface
-export type TGenericTemplateProps = {
+export type GenericTemplateProps = {
   globalHeader?: React.ReactNode
   globalFooter?: React.ReactNode
   children?: React.ReactNode
 }
 
-// Presenter
-export const GenericTemplate: FC<TGenericTemplateProps> = ({
+export const GenericTemplate: FC<GenericTemplateProps> = ({
   globalHeader,
   globalFooter,
   children
@@ -20,6 +21,7 @@ export const GenericTemplate: FC<TGenericTemplateProps> = ({
         <main className="max-w-6xl py-8 mx-auto">{children}</main>
       </div>
       <div>{globalFooter}</div>
+      <Organisms.SiteMenu />
     </Fragment>
   )
 }

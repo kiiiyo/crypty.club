@@ -18,12 +18,12 @@ export type State = {
     height: number
   }
   deviceType: DeviceType
-  displayOverlayMenu: DisplayOverlayView
+  displayOverlaySiteMenu: DisplayOverlayView
   displayOverlaySearchKeyword: DisplayOverlayView
 }
 
 export type Actions = {
-  handleDisplayOverlayMenu: (condition: DisplayOverlayView) => void
+  handleDisplayOverlaySiteMenu: (condition: DisplayOverlayView) => void
   handleDisplayOverlaySearchKeyword: (condition: DisplayOverlayView) => void
 }
 
@@ -36,7 +36,7 @@ export type AppContextValueType = {
 
 const initContextValue: AppContextValueType = {
   state: {
-    displayOverlayMenu: 'HIDE',
+    displayOverlaySiteMenu: 'HIDE',
     displayOverlaySearchKeyword: 'HIDE',
     screenSize: {
       width: 0,
@@ -45,7 +45,7 @@ const initContextValue: AppContextValueType = {
     deviceType: undefined
   },
   actions: {
-    handleDisplayOverlayMenu: () => {},
+    handleDisplayOverlaySiteMenu: () => {},
     handleDisplayOverlaySearchKeyword: () => {}
   }
 }
@@ -56,7 +56,7 @@ export const AppContext = createContext<AppContextValueType>(initContextValue)
 
 export const useAppContext = (): AppContextValueType => {
   // State
-  const [displayOverlayMenu, setDisplayOverlayMenu] =
+  const [displayOverlaySiteMenu, setDisplayOverlaySiteMenu] =
     useState<DisplayOverlayView>('HIDE')
   const [displayOverlaySearchKeyword, setDisplayOverlaySearchKeyword] =
     useState<DisplayOverlayView>('HIDE')
@@ -66,11 +66,11 @@ export const useAppContext = (): AppContextValueType => {
   })
 
   // Actions
-  const handleDisplayOverlayMenu = useCallback(
+  const handleDisplayOverlaySiteMenu = useCallback(
     (condition: DisplayOverlayView) => {
-      setDisplayOverlayMenu(condition)
+      setDisplayOverlaySiteMenu(condition)
     },
-    [setDisplayOverlayMenu]
+    [setDisplayOverlaySiteMenu]
   )
   const handleDisplayOverlaySearchKeyword = useCallback(
     (condition: DisplayOverlayView) => {
@@ -100,10 +100,10 @@ export const useAppContext = (): AppContextValueType => {
       screenSize,
       // TODO: ブレイクポイントを別で管理する
       deviceType: screenSize.width <= 768 ? 'DESKTOP' : 'MOBILE',
-      displayOverlayMenu,
+      displayOverlaySiteMenu,
       displayOverlaySearchKeyword
     },
-    actions: { handleDisplayOverlayMenu, handleDisplayOverlaySearchKeyword }
+    actions: { handleDisplayOverlaySiteMenu, handleDisplayOverlaySearchKeyword }
   }
 }
 
