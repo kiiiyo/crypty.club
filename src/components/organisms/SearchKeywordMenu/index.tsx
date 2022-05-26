@@ -70,7 +70,7 @@ export const SearchKeywordMenuPresenter: FC<
               </button>
             </div>
           </div>
-          <button onClick={onCloseClick} className="fixed top-6 right-6">
+          <button onClick={onCloseClick} className="fixed top-4 right-4">
             <Atoms.Icon.CloseIcon className="h-8 w-8 text-white" />
           </button>
         </div>
