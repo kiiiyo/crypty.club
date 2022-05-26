@@ -57,19 +57,19 @@ export const SiteMenuPresenter: FC<SiteMenuPresenterProps> = ({
                 <h3 className="text-white font-bold text-xl">メニュー</h3>
               </div>
               <div className="grid gap-8 px-4 mt-4 lg:grid-cols-3 lg:px-0 ">
-                <Link href="#">
+                <Link href="/">
                   <a className="p-4 flex justify-start items-center bg-black text-gray-300 hover:text-gray-100 active:text-white border-gray-300 hover:border-gray-100 active:border-white border-2 rounded-md">
                     <Atoms.Icon.HomeIcon className="h-6 w-6 mr-2" />
                     <span>ホーム</span>
                   </a>
                 </Link>
-                <Link href="#">
+                <Link href="/categories">
                   <a className="p-4 flex justify-start items-center bg-black text-gray-300 hover:text-gray-100 active:text-white border-gray-300 hover:border-gray-100 active:border-white border-2 rounded-md">
                     <Atoms.Icon.FolderIcon className="h-6 w-6 mr-2" />
                     <span>カテゴリー</span>
                   </a>
                 </Link>
-                <Link href="#">
+                <Link href="/tags">
                   <a className="p-4 flex justify-start items-center bg-black text-gray-300 hover:text-gray-100 active:text-white border-gray-300 hover:border-gray-100 active:border-white border-2 rounded-md">
                     <Atoms.Icon.TagIcon className="h-6 w-6 mr-2" />
                     <span>タグ</span>
