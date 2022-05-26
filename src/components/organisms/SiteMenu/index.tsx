@@ -77,7 +77,7 @@ export const SiteMenuPresenter: FC<SiteMenuPresenterProps> = ({
                 </Link>
               </div>
             </div>
-            <button onClick={onCloseClick} className="fixed top-4 right-4">
+            <button onClick={onCloseClick} className="fixed top-6 right-6">
               <Atoms.Icon.CloseIcon className="h-8 w-8 text-white" />
             </button>
           </nav>
