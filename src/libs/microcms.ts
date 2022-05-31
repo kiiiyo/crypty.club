@@ -8,16 +8,36 @@ export const microcmsClient = createClient({
   apiKey: process.env.NEXT_PUBLIC_MICRO_CMS_API_KEY || ''
 })
 
-export type TGetListRequest = {
+export type GetListRequest = {
   endpoint: string
   queries?: MicroCMSQueries
 }
 
-export const getList = async (request: TGetListRequest) => {
+export type GetDetailRequest = {
+  endpoint: string
+  contentId: string
+  queries?: MicroCMSQueries
+}
+
+export const getList = async (request: GetListRequest) => {
   const { endpoint, queries } = request
   return await new Promise<Domain.Article.Collection>((resolve, reject) => {
     microcmsClient
       .getList({ endpoint, queries })
+      .then((response) => {
+        resolve(response)
+      })
+      .catch((error) => {
+        reject(new HttpError(error))
+      })
+  })
+}
+
+export const getDetail = async (request: GetDetailRequest) => {
+  const { endpoint, contentId, queries } = request
+  return await new Promise<Domain.Article.Entity>((resolve, reject) => {
+    microcmsClient
+      .get({ endpoint, contentId, queries })
       .then((response) => {
         resolve(response)
       })
