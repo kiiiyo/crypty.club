@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, Fragment } from 'react'
 //
 import { Domain } from '@/features'
 import { Templates, Organisms } from '@/components'
@@ -36,7 +36,13 @@ export const ArticleDetailPagePresenter: FC<
     >
       {/* TODO: Error handling */}
       {error && <div>{error}</div>}
-      {data && <Organisms.ArticleDetail state={{ data }} />}
+
+      {data && (
+        <Fragment>
+          <Organisms.Breadcrumb state={{ data: null }} />
+          <Organisms.ArticleDetail state={{ data }} />
+        </Fragment>
+      )}
     </Templates.GenericTemplate>
   )
 }

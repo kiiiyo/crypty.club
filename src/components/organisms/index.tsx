@@ -6,6 +6,7 @@ import { SearchKeywordMenu } from './SearchKeywordMenu'
 import { ArticleCollection } from './ArticleCollection'
 
 import { ArticleDetail } from './ArticleDetail/ArticleDetail'
+import { Breadcrumb } from './Breadcrumb/Breadcrumb'
 
 //
 export {
@@ -14,5 +15,6 @@ export {
   SiteMenu,
   SearchKeywordMenu,
   ArticleCollection,
-  ArticleDetail
+  ArticleDetail,
+  Breadcrumb
 }
