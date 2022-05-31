@@ -18,22 +18,25 @@ export type ArticleDetailPagePresenterProps = {
   state: State
 }
 
-// Component
+// Container Component
 
 export const ArticleDetailPage: FC<ArticleDetailPageProps> = ({ state }) => {
   return <ArticleDetailPagePresenter state={state} />
 }
 
+// Presenter Component
+
 export const ArticleDetailPagePresenter: FC<
   ArticleDetailPagePresenterProps
 > = ({ state: { data, error } }) => {
-  console.log('🚀 ~ file: ArticleDetailPage.tsx ~ line 30 ~ data', data)
   return (
     <Templates.GenericTemplate
       globalHeader={<Organisms.GlobalHeader />}
       globalFooter={<Organisms.GlobalFooter />}
     >
+      {/* TODO: Error handling */}
       {error && <div>{error}</div>}
+      {data && <Organisms.ArticleDetail state={{ data }} />}
     </Templates.GenericTemplate>
   )
 }
