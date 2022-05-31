@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, Fragment } from 'react'
 //
 import { Domain } from '@/features'
 import { Templates, Organisms } from '@/components'
@@ -18,22 +18,31 @@ export type ArticleDetailPagePresenterProps = {
   state: State
 }
 
-// Component
+// Container Component
 
 export const ArticleDetailPage: FC<ArticleDetailPageProps> = ({ state }) => {
   return <ArticleDetailPagePresenter state={state} />
 }
 
+// Presenter Component
+
 export const ArticleDetailPagePresenter: FC<
   ArticleDetailPagePresenterProps
 > = ({ state: { data, error } }) => {
-  console.log('🚀 ~ file: ArticleDetailPage.tsx ~ line 30 ~ data', data)
   return (
     <Templates.GenericTemplate
       globalHeader={<Organisms.GlobalHeader />}
       globalFooter={<Organisms.GlobalFooter />}
     >
+      {/* TODO: Error handling */}
       {error && <div>{error}</div>}
+
+      {data && (
+        <Fragment>
+          <Organisms.Breadcrumb state={{ data: null }} />
+          <Organisms.ArticleDetail state={{ data }} />
+        </Fragment>
+      )}
     </Templates.GenericTemplate>
   )
 }

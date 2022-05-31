@@ -1,13 +1,20 @@
 import { GlobalHeader } from './GlobalHeader'
 import { GlobalFooter } from './GlobalFooter'
-import { ArticleCollection } from './ArticleCollection'
 import { SiteMenu } from './SiteMenu'
 import { SearchKeywordMenu } from './SearchKeywordMenu'
+
+import { ArticleCollection } from './ArticleCollection'
+
+import { ArticleDetail } from './ArticleDetail/ArticleDetail'
+import { Breadcrumb } from './Breadcrumb/Breadcrumb'
+
 //
 export {
   GlobalHeader,
   GlobalFooter,
-  ArticleCollection,
   SiteMenu,
-  SearchKeywordMenu
+  SearchKeywordMenu,
+  ArticleCollection,
+  ArticleDetail,
+  Breadcrumb
 }
