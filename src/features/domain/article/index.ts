@@ -1,8 +1,14 @@
 import { Domain } from '@/features'
+import { MicroCMSQueries } from 'microcms-js-sdk'
 
 export type CollectionQuery = {
-  limit: number
-  offset: number
+  limit?: number
+  offset?: number
+}
+
+export type DetailRequest = {
+  id: string
+  queries?: MicroCMSQueries
 }
 
 export type Entity = Domain.Content.Entity & {
@@ -22,3 +28,5 @@ export type Collection = {
 }
 
 export type FetchCollectionResult = Promise<Collection | Domain.Error.HttpError>
+
+export type FetchDetailResult = Promise<Entity | Domain.Error.HttpError>

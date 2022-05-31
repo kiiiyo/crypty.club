@@ -7,16 +7,16 @@ import { Atoms } from '@/components'
 
 // Interface
 
-export type TState = {
+export type State = {
   collection: Domain.Article.Collection
 }
 
 export type TArticleCollectionProps = {
-  state: TState
+  state: State
 }
 
 export type TArticleCollectionPresenterProps = {
-  state: TState
+  state: State
 }
 
 // Component
@@ -42,7 +42,7 @@ export const ArticleCollectionPresenter: FC<
           {collection.contents.length > 0 ? (
             collection.contents.map(
               (item: Domain.Article.Entity, index: number) => {
-                const { title, slug, ogp, category, tags } = item
+                const { title, id, ogp, category, tags } = item
                 return (
                   <article key={index} className="mb-10">
                     <div className="relative flex flex-col h-full rounded shadow-lg shadow-gray-300 bg-white">
@@ -73,7 +73,7 @@ export const ArticleCollectionPresenter: FC<
                             </time>
                           </div>
                           <h3 className="overflow-hidden font-medium text-lg tracking-tight py-5 text-gray-800">
-                            <Link href={`/articles/${slug}`}>
+                            <Link href={`/articles/${id}`}>
                               <a className="cursor-pointer">{title}</a>
                             </Link>
                           </h3>

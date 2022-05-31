@@ -5,26 +5,26 @@ import { Templates, Organisms } from '@/components'
 
 // Interface
 
-export type TState = {
+export type State = {
   data?: Domain.Article.Collection
   error?: string
 }
 
-export type THomePageProps = {
-  state: TState
+export type HomePageProps = {
+  state: State
 }
 
-export type THomePagePresenterProps = {
-  state: TState
+export type HomePagePresenterProps = {
+  state: State
 }
 
 // Component
 
-export const HomePage: FC<THomePageProps> = ({ state }) => {
+export const HomePage: FC<HomePageProps> = ({ state }) => {
   return <HomePagePresenter state={state} />
 }
 
-export const HomePagePresenter: FC<THomePagePresenterProps> = ({
+export const HomePagePresenter: FC<HomePagePresenterProps> = ({
   state: { data, error }
 }) => {
   return (
